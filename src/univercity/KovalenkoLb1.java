@@ -16,8 +16,8 @@ public class KovalenkoLb1 {
         double x1 = 0, x2 = 0, f1 = 0, f2 = 0, fi1 = 0.382, fi2 = 0.618;
         for (int i = 0; i < n / 2; i++) {
 
-            x1 = a + fi1*(b - a);
-            x2 = a + fi2*(b - a);
+            x1 = a + fi1 * (b - a);
+            x2 = a + fi2 * (b - a);
             f1 = Math.pow(x1, 3) - 4 * x1 + 4;
             f2 = Math.pow(x2, 3) - 4 * x2 + 4;
             if (f1 <= f2) {
@@ -25,7 +25,7 @@ public class KovalenkoLb1 {
             } else {
                 a = x1;
             }
-            System.out.println("a = " + a + " b = " + b);
+            System.out.println("a = " + a + " \tb = " + b);
         }
 
         if (f1 <= f2) {
@@ -50,7 +50,7 @@ public class KovalenkoLb1 {
             } else {
                 a = x1;
             }
-            System.out.println("a = " + a + " b = " + b);
+            System.out.println("a = " + a + "\tb = " + b);
         }
 
         if (f1 <= f2) {
