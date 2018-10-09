@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Garland {
     private int bulbs;
 
+    Garland (int bulbs){
+        this.bulbs = bulbs;
+    }
+
     public int getBulbs() {
         return bulbs;
     }
@@ -53,9 +57,6 @@ public class Garland {
         }
     }
 
-    Garland (int bulbs){
-        this.bulbs = bulbs;
-    }
 
     public void selectFunction() {
         String defaultMessage = "Вводите число из указанного диапазона";
