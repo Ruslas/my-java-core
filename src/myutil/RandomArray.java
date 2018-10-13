@@ -12,4 +12,16 @@ public class RandomArray {
         }
         return randArray;
     }
+
+    public static int[][] randomTwoArray(int rows, int columns, int leftBoundary, int rightBoundary) {
+        final Random random = new Random();
+        int[][] randArray = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++) {
+                randArray[i][j] = random.nextInt(rightBoundary - leftBoundary) + leftBoundary;
+            }
+        return randArray;
+    }
 }
+
