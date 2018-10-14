@@ -74,7 +74,7 @@ public class Matrix {
                 }
             }
         } else {
-            System.out.println("Число столбцов матрицы А должно равнятся числу столбцов матрицы В");
+            System.out.println("Число столбцов матрицы А должно равнятся числу строк матрицы В");
         }
         return result;
     }
