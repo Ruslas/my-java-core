@@ -7,9 +7,10 @@ public class Phone {
     private String number;
     private String model;
     private double weight;
+    private static int count;
 
     public Phone() {
-
+        count++;
     }
 
     public Phone(String model, double weight, String number) {
@@ -18,6 +19,7 @@ public class Phone {
     }
 
     public Phone(String model, String number) {
+        this();
         this.model = model;
         this.number = number;
     }
@@ -44,6 +46,10 @@ public class Phone {
 
     public double getWeight() {
         return weight;
+    }
+
+    public static int getCount(){
+        return count;
     }
 
     public void phoneToString() {

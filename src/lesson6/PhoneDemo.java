@@ -23,5 +23,7 @@ public class PhoneDemo {
         myphone1.receiveCall("Papa", "343252353");
 
         myphone1.sendMessage("34234424342", "2134235414", "2132412411");
+
+        System.out.println(Phone.getCount());
     }
 }
