@@ -1,42 +1,42 @@
 package lesson7.homework;
 
 public class Person {
-    private String fullName;
-    private int age;
+    protected String fullName;
+    protected int age;
 
-    Person() {
+    protected Person() {
     }
 
-    Person(String fullName, int age) {
+    protected Person(String fullName, int age) {
         this.fullName = fullName;
         this.age = age;
     }
 
-    public String getFullName() {
+    protected String getFullName() {
         return fullName;
     }
 
-    public int getAge() {
+    protected int getAge() {
         return age;
     }
 
-    public void setFullName(String fullName) {
+    protected void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
-    public void setAge(int age) {
+    protected void setAge(int age) {
         this.age = age;
     }
 
-    public void move() {
+    protected void move() {
         System.out.println("Такой-то " + fullName + " двигается");
     }
 
-    public void talk() {
+    protected void talk() {
         System.out.println("Такой-то " + fullName + " говорит");
     }
 
-    public void printPerson() {
-        System.out.println(getFullName() + " " + getAge());
+    protected void printPerson() {
+        System.out.print(getFullName() + " " + getAge() + " года");
     }
 }
