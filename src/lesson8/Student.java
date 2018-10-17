@@ -59,9 +59,7 @@ public class Student {
     }
 
     public void printStudent() {
-        System.out.println("firstName - " + firstName +
-                ", lastName - " + lastName +
-                ", group - " + group +
-                ", averageMark - " + averageMark);
+        System.out.println("Имя - " + firstName + ", Фамилия - " + lastName +
+                ", Группа - " + group + ", Средний бал - " + averageMark);
     }
 }

@@ -1,6 +1,21 @@
 package lesson8;
 
 public class Aspirant extends Student {
+    private String scientificWork;
+
+    public Aspirant(String firstName, String lastName, String group, double averageMark, String scientificWork) {
+        super(firstName, lastName, group, averageMark);
+        this.scientificWork = scientificWork;
+    }
+
+    public String getScientificWork() {
+        return scientificWork;
+    }
+
+    public void setScientificWork(String scientificWork) {
+        this.scientificWork = scientificWork;
+    }
+
     @Override
     public int getScholarship() {
         if (this.getAverageMark() == 5.0) {
@@ -10,7 +25,10 @@ public class Aspirant extends Student {
         }
     }
 
-    public Aspirant(String firstName, String lastName, String group, double averageMark) {
-        super(firstName, lastName, group, averageMark);
+    @Override
+    public void printStudent() {
+        System.out.println("Имя - " + getFirstName() + ", Фамилия - " + getLastName() +
+                ", Группа - " + getGroup() + ", Средний бал - " + getAverageMark() +
+                ", Научная работа - " + getScientificWork());
     }
 }
