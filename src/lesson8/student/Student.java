@@ -1,4 +1,4 @@
-package lesson8;
+package lesson8.student;
 
 public class Student {
     private String firstName, lastName, group;
