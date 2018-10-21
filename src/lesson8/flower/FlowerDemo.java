@@ -25,24 +25,14 @@ public class FlowerDemo {
         Flower iris3 = new Iris("Голландия", 3, 10);
         Flower iris4 = new Iris("Голландия", 3, 10);
 
-        Flower[] bouquet1 = {rose1, rose2, rose3, rose4, rose5, rose6, rose7};
-        Flower[] bouquet2 = {tulip1, tulip2, tulip3, iris1, iris2, iris3, carnation1};
-        Flower[] bouquet3 = {tulip4, tulip5, carnation2, carnation3, carnation4, carnation5, carnation6, iris4};
+        Bouquet b1 = new Bouquet(rose1, rose2, rose3, rose4, rose5, rose6, rose7);
+        Bouquet b2 = new Bouquet(tulip1, tulip2, tulip3, iris1, iris2, iris3, carnation1);
+        Bouquet b3 = new Bouquet(tulip4, tulip5, carnation2, carnation3, carnation4, carnation5, carnation6, iris4);
 
-        int bouquetCost1 = 0, bouquetCost2 = 0, bouquetCost3 = 0;
+        b1.bouquetInfo();
+        b2.bouquetInfo();
+        b3.bouquetInfo();
 
-        for (Flower flower : bouquet1) {
-            bouquetCost1 += flower.getPrice();
-        }
-        for (Flower flower : bouquet2) {
-            bouquetCost2 += flower.getPrice();
-        }
-        for (Flower flower : bouquet3) {
-            bouquetCost3 += flower.getPrice();
-        }
-        System.out.println(bouquetCost1);
-        System.out.println(bouquetCost2);
-        System.out.println(bouquetCost3);
         System.out.println(Flower.getCount());
     }
 }

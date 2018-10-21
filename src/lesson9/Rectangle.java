@@ -46,4 +46,39 @@ public class Rectangle extends Shape {
     public void draw() {
         System.out.print("Drawing " + getColor() + " rectangle " + Point.distances(a, b) + "x" + Point.distances(b, c));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Rectangle rectangle = (Rectangle) o;
+
+        if (!a.equals(rectangle.a)) return false;
+        if (!b.equals(rectangle.b)) return false;
+        if (!c.equals(rectangle.c)) return false;
+        return d.equals(rectangle.d);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + a.hashCode();
+        result = 31 * result + b.hashCode();
+        result = 31 * result + c.hashCode();
+        result = 31 * result + d.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                ", d=" + d +
+                "} " + super.toString();
+    }
 }

@@ -9,11 +9,16 @@ public class ShapeDemo {
         Shape circle1 = new Circle("grey", 3, p1);
         Shape rectangle1 = new Rectangle("red", p1, p2, p3, p4);
         Shape circle2 = new Circle("grey", 3, p1);
+        Shape circle3 = new Circle("grey", 3, p1);
 
         Shape[] shapes = {circle1, circle2, rectangle1};
         for (Shape shape: shapes){
             shape.draw();
         }
-    }
+        System.out.println();
+        System.out.println(circle2.equals(circle3));
 
+        System.out.println(circle1);
+        System.out.println(rectangle1);
+    }
 }
