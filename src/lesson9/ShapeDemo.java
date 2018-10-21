@@ -10,8 +10,10 @@ public class ShapeDemo {
         Shape rectangle1 = new Rectangle("red", p1, p2, p3, p4);
         Shape circle2 = new Circle("grey", 3, p1);
 
-        circle1.draw();
-        rectangle1.draw();
+        Shape[] shapes = {circle1, circle2, rectangle1};
+        for (Shape shape: shapes){
+            shape.draw();
+        }
     }
 
 }
