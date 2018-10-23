@@ -42,6 +42,7 @@ public class Bouquet {
 
     public void setBouquet(Flower... flowers) {
         this.bouquet = flowers;
+        flowerCount();
     }
 
     public void flowerCount() {

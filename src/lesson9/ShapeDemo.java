@@ -20,5 +20,7 @@ public class ShapeDemo {
 
         System.out.println(circle1);
         System.out.println(rectangle1);
+        System.out.println(circle1.getPerimeter());
+        System.out.println(circle1.getArea());
     }
 }

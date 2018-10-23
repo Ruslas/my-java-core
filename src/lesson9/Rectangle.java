@@ -48,6 +48,16 @@ public class Rectangle extends Shape {
     }
 
     @Override
+    public double getPerimeter(){
+        return 2*(Point.distances(getA(), getB())+ Point.distances(getB(), getC()));
+    }
+
+    @Override
+    public double getArea(){
+        return Point.distances(getA(), getB())*Point.distances(getB(), getC());
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

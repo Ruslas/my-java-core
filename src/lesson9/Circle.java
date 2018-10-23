@@ -1,6 +1,7 @@
 package lesson9;
 
 public class Circle extends Shape {
+    private static final double PI = Math.PI;
     private int radius;
     private Point center;
 
@@ -27,6 +28,16 @@ public class Circle extends Shape {
     }
 
     @Override
+    public double getPerimeter(){
+        return radius*PI*2;
+    }
+
+    @Override
+    public double getArea(){
+        return radius*radius*PI;
+    }
+
+    @Override
     public void draw() {
         System.out.print("Drawing " + getColor() + " circle with radius = " + radius + " and center in ");
         getCenter().printPoint();
@@ -42,7 +53,6 @@ public class Circle extends Shape {
 
         if (radius != circle.radius) return false;
         return center.equals(circle.center);
-
     }
 
     @Override
