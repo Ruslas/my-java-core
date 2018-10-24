@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.shape;
 
 public class Rectangle extends Shape {
     private Point a, b, c, d;

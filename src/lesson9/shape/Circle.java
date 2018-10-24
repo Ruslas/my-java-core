@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.shape;
 
 public class Circle extends Shape {
     private static final double PI = Math.PI;

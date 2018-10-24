@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.shape;
 
 public class Point {
     private int x, y;
