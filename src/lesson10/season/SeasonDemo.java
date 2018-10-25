@@ -9,6 +9,18 @@ public class SeasonDemo {
 
         Season season = Season.valueOf("SuMmEr".toUpperCase());
         System.out.println(season);
+
+        printSeasonsInfo();
+    }
+
+    private static void printSeasonsInfo(){
+        Season[] seasons = Season.values();
+        for (Season season: seasons){
+            System.out.println(season);
+            System.out.println(season.getDescription());
+            System.out.println("Срдняя температура - " + season.getTemperature());
+            System.out.println("---------");
+        }
     }
 
     private static void printAllSeasons() {
