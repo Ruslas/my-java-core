@@ -13,5 +13,6 @@ public class PersonDemo {
 
         person1.move();
         person2.talk();
+        System.out.println(person1);
     }
 }

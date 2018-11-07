@@ -1,5 +1,8 @@
 package lesson7.homework;
 
+import java.text.Format;
+import java.util.Formatter;
+
 public class Person {
     protected String fullName;
     protected int age;
@@ -38,5 +41,29 @@ public class Person {
 
     protected void printPerson() {
         System.out.print(getFullName() + " " + getAge() + " года");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        return fullName != null ? fullName.equals(person.fullName) : person.fullName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = fullName != null ? fullName.hashCode() : 0;
+        result = 31 * result + age;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        Formatter formatter = new Formatter();
+        return formatter.format("Person{fullName='%s', age=%d}", fullName, age).toString();
     }
 }
