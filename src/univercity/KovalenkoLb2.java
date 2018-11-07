@@ -36,7 +36,7 @@ public class KovalenkoLb2 {
                 x2 = scanPoint[i];
             }
 
-            System.out.println("f2 = " + f2 + "\tx2 = " + x2);
+            System.out.printf("f2 = %.3f \tx2 = %.3f%n",  f2, x2);
         }
     }
 }

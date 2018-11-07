@@ -63,7 +63,6 @@ public class Person {
 
     @Override
     public String toString() {
-        Formatter formatter = new Formatter();
-        return formatter.format("Person{fullName='%s', age=%d}", fullName, age).toString();
+        return String.format("Person{fullName='%s', age=%d}", fullName, age);
     }
 }

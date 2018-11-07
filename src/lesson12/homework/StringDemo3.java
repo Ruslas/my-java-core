@@ -11,14 +11,13 @@ public class StringDemo3 {
                 "approach",
                 "approval",
                 "characteristic"};
-        for (String str: strs){
+        for (String str : strs) {
             System.out.println(getTwoMiddleChar(str));
         }
-
     }
 
-    private static String getTwoMiddleChar(String str){
+    private static String getTwoMiddleChar(String str) {
         StringBuilder stringBuilder = new StringBuilder(str);
-        return stringBuilder.substring((stringBuilder.length()/2-1), (stringBuilder.length()/2+1)).toString();
+        return stringBuilder.substring((stringBuilder.length() / 2 - 1), (stringBuilder.length() / 2 + 1)).toString();
     }
 }
