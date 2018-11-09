@@ -3,7 +3,7 @@ package univercity;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class KovalenkoLb2 {
+public class KovalenkoLb2Method1 {
     public static void main(String[] args) {
         int N;
         double a, b;
