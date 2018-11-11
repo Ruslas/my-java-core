@@ -8,7 +8,9 @@ public class Employee {
         if (salary > 0) {
             this.fullName = fullName;
             this.salary = salary;
-        } else System.out.println("Salary must be positive!");
+        } else {
+            System.out.println("Salary must be positive!");
+        }
     }
 
     public Employee() {

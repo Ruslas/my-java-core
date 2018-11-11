@@ -1,7 +1,5 @@
 package lesson13.homework;
 
-import java.util.Arrays;
-
 public class RegexDemo5 {
     public static void main(String[] args) {
         String str = "Если есть хвосты по дз, начните с 1 не сданного задания. 123 324 111 4554 88 7117 671 464 5789875";
@@ -10,7 +8,7 @@ public class RegexDemo5 {
     }
 
     private static String numericWords(String str) {
-        StringBuffer numericWords = new StringBuffer();
+        StringBuilder numericWords = new StringBuilder();
         String[] words = str.split(" ");
         for (String word : words) {
             if (word.matches("[0-9]+")) {
@@ -24,16 +22,8 @@ public class RegexDemo5 {
         StringBuilder palindromeWords = new StringBuilder();
         String[] words = str.split(" ");
         for (String word : words) {
-            StringBuilder secondPart = new StringBuilder(word.substring(word.length() / 2));
-            String fp;
-            if (word.length() % 2 == 0) {
-                fp = word.substring(0, word.length() / 2);
-            } else {
-                fp = word.substring(0, word.length() / 2 + 1);
-            }
-            String sp = secondPart.reverse().toString();
-            System.out.println(fp + " - " + sp);
-            if (fp.equals(sp)) {
+            StringBuilder sp = new StringBuilder(word);
+            if (sp.toString().equals(sp.reverse().toString())) {
                 palindromeWords.append(word).append(" ");
             }
         }

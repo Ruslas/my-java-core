@@ -9,10 +9,10 @@ public class RegexDemo3 {
                 "Alfred's jewel embossed on the front cover.";
         String[] words = str.split(" ");
         System.out.println(Arrays.toString(words));
-        System.out.println(MinDifferentSymbolsWord(str));
+        System.out.println(minDifferentSymbolsWord(str));
     }
 
-    private static String MinDifferentSymbolsWord(String str) {
+    private static String minDifferentSymbolsWord(String str) {
         String[] words = str.split(" ");
         int minLength = 999;
         String minWord = "";
@@ -24,7 +24,7 @@ public class RegexDemo3 {
                 if (unique.indexOf(c) == -1)
                     unique.append(c);
             }
-            if (unique.length() < minLength){
+            if (unique.length() < minLength) {
                 minLength = unique.length();
                 minWord = word;
             }

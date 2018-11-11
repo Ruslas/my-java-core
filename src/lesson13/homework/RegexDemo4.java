@@ -7,22 +7,22 @@ public class RegexDemo4 {
         System.out.println(countLatinWords(str));
     }
 
-    private static int countLatinWords(String str){
+    private static int countLatinWords(String str) {
         int count = 0;
         String[] words = str.split(" ");
-        for (String word: words){
-            if (word.matches("[a-zA-z]+")){
-               count++;
+        for (String word : words) {
+            if (word.matches("[a-zA-z]+")) {
+                count++;
             }
         }
         return count;
     }
 
-    private static String latinWords(String str){
+    private static String latinWords(String str) {
         StringBuilder latinWords = new StringBuilder();
         String[] words = str.split(" ");
-        for (String word: words){
-            if (word.matches("[a-zA-z]+")){
+        for (String word : words) {
+            if (word.matches("[a-zA-z]+")) {
                 latinWords.append(word).append(" ");
             }
         }
