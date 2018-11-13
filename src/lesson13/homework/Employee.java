@@ -1,8 +1,21 @@
 package lesson13.homework;
 
+import java.time.LocalDate;
+
 public class Employee {
     private String fullName;
     private double salary;
+    private LocalDate salaryDate;
+
+    public Employee(String fullName, double salary, LocalDate salaryDate) {
+        if (salary > 0) {
+            this.fullName = fullName;
+            this.salary = salary;
+            this.salaryDate = salaryDate;
+        } else {
+            System.out.println("Salary must be positive!");
+        }
+    }
 
     public Employee(String fullName, double salary) {
         if (salary > 0) {
@@ -14,6 +27,14 @@ public class Employee {
     }
 
     public Employee() {
+    }
+
+    public LocalDate getSalaryDate() {
+        return salaryDate;
+    }
+
+    public void setSalaryDate(LocalDate salaryDate) {
+        this.salaryDate = salaryDate;
     }
 
     public String getFullName() {
@@ -42,7 +63,8 @@ public class Employee {
         Employee employee = (Employee) o;
 
         if (Double.compare(employee.salary, salary) != 0) return false;
-        return fullName != null ? fullName.equals(employee.fullName) : employee.fullName == null;
+        if (fullName != null ? !fullName.equals(employee.fullName) : employee.fullName != null) return false;
+        return salaryDate != null ? salaryDate.equals(employee.salaryDate) : employee.salaryDate == null;
     }
 
     @Override
@@ -52,6 +74,7 @@ public class Employee {
         result = fullName != null ? fullName.hashCode() : 0;
         temp = Double.doubleToLongBits(salary);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (salaryDate != null ? salaryDate.hashCode() : 0);
         return result;
     }
 
@@ -60,6 +83,7 @@ public class Employee {
         return "Employee{" +
                 "fullName='" + fullName + '\'' +
                 ", salary=" + salary +
+                ", salaryDate=" + salaryDate +
                 '}';
     }
 }

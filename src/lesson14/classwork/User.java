@@ -8,12 +8,12 @@ public class User {
 
     class Query {
         public void printToLog(){
-            System.out.printf("User %s with login %s and password %s send query%n",
+            System.out.printf("User with login %s and password %s send query%n",
                     login, password);
         }
     }
 
-    public void createStreet() {
+    public void createQuery() {
         Query query = new Query();
         query.printToLog();
     }
@@ -70,6 +70,9 @@ public class User {
     }
 
     public static void main(String[] args) {
-
+        User user = new User("YaruYre", "1111");
+        user.createQuery();
+        user.new Query().printToLog();
+        new User().new Query().printToLog();
     }
 }

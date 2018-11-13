@@ -41,6 +41,7 @@ public class DoubleArray {
             if (i == iMax)
                 return d.append(']').toString();
             d.append(", ");
+            if (i%5 == 0 && i !=0) d.append("\n");
         }
     }
 }
