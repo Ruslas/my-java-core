@@ -8,7 +8,9 @@ public class PrintableDemo {
         Printable magazine2 = new Magazine("jwerew");
         Printable magazine3 = new Magazine("Idfsfsd");
 
-        Printable[] toPrint = {book1, book2, magazine1, magazine2, magazine3};
+        Printable newspaper = () -> System.out.println("Печатаем газету");
+
+        Printable[] toPrint = {book1, book2, magazine1, magazine2, magazine3, newspaper};
         for (Printable lit : toPrint) {
             lit.print();
         }

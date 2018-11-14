@@ -8,6 +8,9 @@ public class Dog extends  Animal {
         this.size = size;
     }
 
+    public Dog() {
+    }
+
     public String getSize() {
         return size;
     }

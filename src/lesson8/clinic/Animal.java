@@ -1,6 +1,8 @@
 package lesson8.clinic;
 
-public abstract class Animal {
+import java.io.Serializable;
+
+public abstract class Animal implements Serializable {
     private String food, location;
 
     public Animal(String food, String location) {

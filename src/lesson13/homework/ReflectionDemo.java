@@ -37,7 +37,7 @@ public class ReflectionDemo {
         System.out.println("Fields: "
                 + Arrays.toString(cl.getFields()));
         System.out.println("Superclass: " + cl.getSuperclass());
-        System.out.println("Package: " + cl.getPackageName());
+        System.out.println("Package: " + cl.getPackage());
         System.out.println("Modifiers: " + cl.getModifiers());
     }
 }

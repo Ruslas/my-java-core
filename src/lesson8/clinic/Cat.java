@@ -8,6 +8,9 @@ public class Cat extends  Animal {
         this.color = color;
     }
 
+    public Cat() {
+    }
+
     public String getColor() {
         return color;
     }
