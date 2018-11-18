@@ -15,9 +15,9 @@ public class PhoneDemo {
 
         myphone3.setWeight(145.4);
 
-        myphone1.phoneToString();
-        myphone2.phoneToString();
-        myphone3.phoneToString();
+        myphone1.phoneInfo();
+        myphone2.phoneInfo();
+        myphone3.phoneInfo();
 
         myphone1.receiveCall("Mama");
         myphone1.receiveCall("Papa", "343252353");

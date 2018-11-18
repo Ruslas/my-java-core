@@ -12,5 +12,7 @@ public class PredekatDemo1 {
         Predicate<String> pr2 = (String str) -> str.isEmpty();
         System.out.println(pr2.test(""));
         System.out.println(pr2.test("wdwdw"));
+        Predicate<String> pr3 = pr1.and(pr2);
+        System.out.println(pr3.test("2423wq"));
     }
 }

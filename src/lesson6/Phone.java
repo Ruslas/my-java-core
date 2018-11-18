@@ -52,7 +52,7 @@ public class Phone {
         return count;
     }
 
-    public void phoneToString() {
+    public void phoneInfo() {
         System.out.println("number - " + this.getNomber() + "\tmodel - " + this.getModel() + "\tweight - " + this.getWeight());
     }
 
