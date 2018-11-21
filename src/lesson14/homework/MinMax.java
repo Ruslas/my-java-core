@@ -17,20 +17,20 @@ public class MinMax<T extends Number> {
         this.array = array;
     }
 
-    public T searchMin(){
+    public T searchMin() {
         T min = array[0];
-        for (int i = 1; i < array.length; i++){
-            if (array[i].doubleValue() < min.doubleValue()){
+        for (int i = 1; i < array.length; i++) {
+            if (array[i].doubleValue() < min.doubleValue()) {
                 min = array[i];
             }
         }
         return min;
     }
 
-    public T searchMax(){
+    public T searchMax() {
         T max = array[0];
-        for (int i = 1; i < array.length; i++){
-            if (array[i].doubleValue() > max.doubleValue()){
+        for (int i = 1; i < array.length; i++) {
+            if (array[i].doubleValue() > max.doubleValue()) {
                 max = array[i];
             }
         }

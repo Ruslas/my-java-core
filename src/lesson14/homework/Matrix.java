@@ -81,7 +81,7 @@ public class Matrix<T extends Number> {
             for (int j = 0; j < getColumnsNumber(); j++) {
                 result[i][j] = num * this.array[i][j].doubleValue();
             }
-        return new  Matrix<Double>(result);
+        return new Matrix<Double>(result);
     }
 
     public void printMatrix() {
