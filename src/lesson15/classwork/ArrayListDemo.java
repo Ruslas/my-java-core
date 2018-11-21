@@ -1,9 +1,8 @@
-package lesson15;
+package lesson15.classwork;
 
 import lesson6.Phone;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by student on 18.11.2018.
@@ -25,6 +24,15 @@ public class ArrayListDemo {
         phones.remove(phones.size() - 1);
         System.out.println();
         printArray(phones);
+
+        Phone[] phones1 = phones.toArray(new Phone[0]);
+        System.out.println(Arrays.toString(phones1));
+
+        SortedSet<Phone> set = new TreeSet<>();
+        set.add(myphone1);
+        set.add(myphone2);
+        set.add(myphone3);
+        set.forEach((s) -> System.out.println("Phone " + s));
     }
 
     private static void printArray(List<Phone> phones) {

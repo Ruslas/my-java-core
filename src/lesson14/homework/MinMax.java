@@ -44,8 +44,7 @@ public class MinMax<T extends Number> {
 
         MinMax<?> minMax = (MinMax<?>) o;
 
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(array, minMax.array);
+        return Arrays.deepEquals(array, minMax.array);
     }
 
     @Override
