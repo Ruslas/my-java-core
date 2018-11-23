@@ -1,23 +1,48 @@
 package onlineStore;
 
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Basket {
-    private Commodity[] boughtCommodities;
+    private Set<Commodity> boughtCommodities;
 
-    public Basket(Commodity[] boughtCommodities) {
+    public Basket(Set<Commodity> boughtCommodities) {
         this.boughtCommodities = boughtCommodities;
     }
 
     public Basket() {
+        boughtCommodities = new HashSet<>();
     }
 
-    public Commodity[] getBoughtCommodities() {
+    public void clear(){
+        boughtCommodities.clear();
+    }
+
+    public Set<Commodity> getBoughtCommodities() {
         return boughtCommodities;
     }
 
-    public void setBoughtCommodities(Commodity[] boughtCommodities) {
+    public void setBoughtCommodities(Set<Commodity> boughtCommodities) {
         this.boughtCommodities = boughtCommodities;
+    }
+
+    public void addCommodity(Commodity commodity){
+        boughtCommodities.add(commodity);
+    }
+
+    public void printBasketContents(){
+        for (Commodity commodity: boughtCommodities){
+            System.out.print(commodity.getName() + ", ");
+        }
+        System.out.println();
+    }
+
+    public double getBasketPrice(){
+        double price = 0;
+        for (Commodity commodity: boughtCommodities){
+            price += commodity.getPrise();
+        }
+        return price;
     }
 
     @Override
@@ -27,19 +52,18 @@ public class Basket {
 
         Basket basket = (Basket) o;
 
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(boughtCommodities, basket.boughtCommodities);
+        return boughtCommodities != null ? boughtCommodities.equals(basket.boughtCommodities) : basket.boughtCommodities == null;
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(boughtCommodities);
+        return boughtCommodities != null ? boughtCommodities.hashCode() : 0;
     }
 
     @Override
     public String toString() {
         return "Basket{" +
-                "boughtCommodities=" + Arrays.toString(boughtCommodities) +
+                "boughtCommodities=" + boughtCommodities +
                 '}';
     }
 }

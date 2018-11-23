@@ -18,6 +18,14 @@ public class Commodity {
     public Commodity(String name, double prise) {
         this.name = name;
         this.prise = prise;
+        this.rating = 0;
+    }
+
+    public Commodity(String name) {
+        this.name = name;
+    }
+
+    public Commodity() {
     }
 
     public String getName() {
@@ -51,20 +59,12 @@ public class Commodity {
 
         Commodity commodity = (Commodity) o;
 
-        if (Double.compare(commodity.prise, prise) != 0) return false;
-        if (rating != commodity.rating) return false;
         return name != null ? name.equals(commodity.name) : commodity.name == null;
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = name != null ? name.hashCode() : 0;
-        temp = Double.doubleToLongBits(prise);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + rating;
-        return result;
+        return name != null ? name.hashCode() : 0;
     }
 
     @Override

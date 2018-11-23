@@ -1,18 +1,21 @@
 package onlineStore;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Category {
     private String name;
-    private Commodity[] commodities;
+    private Set<Commodity> commodities;
 
-    public Category(String name, Commodity[] commodities) {
+    public Category(String name, Set<Commodity> commodities) {
         this.name = name;
         this.commodities = commodities;
     }
 
     public Category(String name) {
         this.name = name;
+        commodities = new HashSet<>();
     }
 
     public String getName() {
@@ -23,12 +26,22 @@ public class Category {
         this.name = name;
     }
 
-    public Commodity[] getCommodities() {
+    public Set<Commodity> getCommodities() {
         return commodities;
     }
 
-    public void setCommodities(Commodity[] commodities) {
+    public void setCommodities(Set<Commodity> commodities) {
         this.commodities = commodities;
+    }
+
+    public void addCommodity(Commodity... commodity){
+        commodities.addAll(Arrays.asList(commodity));
+    }
+
+    public void printCommodities(){
+        for (Commodity commodity  : commodities) {
+            System.out.println(commodity.getName());
+        }
     }
 
     @Override
@@ -38,23 +51,19 @@ public class Category {
 
         Category category = (Category) o;
 
-        if (name != null ? !name.equals(category.name) : category.name != null) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(commodities, category.commodities);
+        return name != null ? name.equals(category.name) : category.name == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + Arrays.hashCode(commodities);
-        return result;
+        return name != null ? name.hashCode() : 0;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "\nCategory{" +
                 "name='" + name + '\'' +
-                ", commodities=" + Arrays.toString(commodities) +
-                '}';
+                ", commodities=" + commodities +
+                "}";
     }
 }
