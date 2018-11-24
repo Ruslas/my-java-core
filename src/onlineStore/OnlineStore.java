@@ -63,18 +63,58 @@ public class OnlineStore {
         return users.contains(new User(login, password));
     }
 
+    public boolean containsCategory(String categoryName) {
+        return categories.contains(new Category(categoryName));
+    }
+
     public void printCategories() {
         for (Category category : categories) {
             System.out.println(category.getName());
         }
     }
 
+    public Commodity getCommodity(String commodityName){
+        Commodity co = new Commodity();
+        for (Category category : categories) {
+            if (category.containsCommodity(commodityName)) {
+                co = category.getCommodity(commodityName);
+            }
+        }
+        return co;
+    }
+
+    public void raitUpCommodity(String commodityName){
+        for (Category category : categories) {
+            if (category.containsCommodity(commodityName)) {
+                category.getCommodity(commodityName).raitUp();
+            }
+        }
+    }
+
     public void printCommodity(String categoryName) {
-        if (categories.contains(new Category(categoryName))) {
+        if (this.containsCategory(categoryName)) {
             for (Category category : categories) {
                 if (category.equals(new Category(categoryName))) {
-                    for (Commodity commodity : category.getCommodities()) {
-                        System.out.println(commodity.getName());
+                    category.printCommodities();
+                }
+            }
+        } else {
+            System.out.println("Указанная категория не существует");
+        }
+    }
+
+    public void printCommodity(String categoryName, String command) {
+        if (this.containsCategory(categoryName)) {
+            for (Category category : categories) {
+                if (category.equals(new Category(categoryName))) {
+                    switch (command){
+                        case "Name": category.sortByName();
+                        break;
+                        case "Prise": category.sortByPrise();
+                        break;
+                        case "Rating": category.sortByRating();
+                        break;
+                        default:category.printCommodities();
                     }
                 }
             }
@@ -84,19 +124,10 @@ public class OnlineStore {
     }
 
     public void pickCommodity(String commodityName, String userLogin) {
-        Commodity c = new Commodity();
-        for (Category category : categories) {
-            if (category.getCommodities().contains(new Commodity(commodityName))) {
-                for (Commodity commodity : category.getCommodities()) {
-                    if (commodity.getName().equals(commodityName)) {
-                        c = commodity;
-                    }
-                }
-                for (User user : users) {
-                    if (user.getLogin().equals(userLogin)) {
-                        user.pickCommodity(c);
-                    }
-                }
+        for (User user : users) {
+            if (user.getLogin().equals(userLogin)) {
+                user.pickCommodity(this.getCommodity(commodityName));
+                raitUpCommodity(commodityName);
             }
         }
     }

@@ -3,6 +3,7 @@ package onlineStore;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Category {
     private String name;
@@ -34,13 +35,57 @@ public class Category {
         this.commodities = commodities;
     }
 
+    public boolean containsCommodity(String commodityName){
+        return commodities.contains(new Commodity(commodityName));
+    }
+
+    public Commodity getCommodity(String commodityName){
+        Commodity c = new Commodity();
+        if (this.containsCommodity(commodityName)){
+            for (Commodity commodity: commodities){
+                if (commodity.getName().equals(commodityName)){
+                    c = commodity;
+                }
+            }
+        }
+        return c;
+    }
+
     public void addCommodity(Commodity... commodity){
         commodities.addAll(Arrays.asList(commodity));
     }
 
     public void printCommodities(){
         for (Commodity commodity  : commodities) {
-            System.out.println(commodity.getName());
+            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+                    commodity.getPrise(), commodity.getRating());
+        }
+    }
+
+    public void sortByName(){
+        Set<Commodity> c = new TreeSet<>(new CommodityByNameComparator());
+        c.addAll(commodities);
+        for (Commodity commodity: c){
+            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+                    commodity.getPrise(), commodity.getRating());
+        }
+    }
+
+    public void sortByPrise(){
+        Set<Commodity> c = new TreeSet<>(new CommodityByPriseComparator());
+        c.addAll(commodities);
+        for (Commodity commodity: c){
+            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+                    commodity.getPrise(), commodity.getRating());
+        }
+    }
+
+    public void sortByRating(){
+        Set<Commodity> c = new TreeSet<>(new CommodityByRatingComparator());
+        c.addAll(commodities);
+        for (Commodity commodity: c){
+            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+                    commodity.getPrise(), commodity.getRating());
         }
     }
 

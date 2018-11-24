@@ -37,9 +37,16 @@ public class OnlineStoreDemo {
         eldorado.addUser(user1, user2, user3);
 
         System.out.println(eldorado);
+        eldorado.addUser("MishKa", "qwert");
         eldorado.pickCommodity("Sony", "Lyutik");
         eldorado.pickCommodity("ASUS", "Lyutik");
         eldorado.pickCommodity("Nokia7046", "Triborg12");
         System.out.println(eldorado);
+        user1.buyAll();
+        System.out.println(eldorado);
+        eldorado.printCategories();
+        eldorado.printCommodity("Notebooks", "Name");
+        System.out.println(eldorado.getCommodity("ASUS"));
+        System.out.println(eldorado.userAuthentication("Triborg12", "0302"));
     }
 }

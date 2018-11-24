@@ -52,6 +52,10 @@ public class Commodity {
         this.rating = rating;
     }
 
+    public void raitUp(){
+        this.rating++;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
