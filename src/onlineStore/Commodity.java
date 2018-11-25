@@ -52,7 +52,7 @@ public class Commodity {
         this.rating = rating;
     }
 
-    public void raitUp(){
+    public void raitUp() {
         this.rating++;
     }
 

@@ -14,7 +14,7 @@ public class Basket {
         boughtCommodities = new HashSet<>();
     }
 
-    public void clear(){
+    public void clear() {
         boughtCommodities.clear();
     }
 
@@ -26,20 +26,20 @@ public class Basket {
         this.boughtCommodities = boughtCommodities;
     }
 
-    public void addCommodity(Commodity commodity){
+    public void addCommodity(Commodity commodity) {
         boughtCommodities.add(commodity);
     }
 
-    public void printBasketContents(){
-        for (Commodity commodity: boughtCommodities){
+    public void printBasketContents() {
+        for (Commodity commodity : boughtCommodities) {
             System.out.print(commodity.getName() + ", ");
         }
         System.out.println();
     }
 
-    public double getBasketPrice(){
+    public double getBasketPrice() {
         double price = 0;
-        for (Commodity commodity: boughtCommodities){
+        for (Commodity commodity : boughtCommodities) {
             price += commodity.getPrise();
         }
         return price;

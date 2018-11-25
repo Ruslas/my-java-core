@@ -35,16 +35,16 @@ public class OnlineStore {
         return users;
     }
 
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
     public boolean addCategories(Category... category) {
         return this.categories.addAll(Arrays.asList(category));
     }
 
     public boolean removeCategories(Category... category) {
         return this.categories.removeAll(Arrays.asList(category));
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
     }
 
     public boolean addUser(String login, String password) {
@@ -73,7 +73,7 @@ public class OnlineStore {
         }
     }
 
-    public Commodity getCommodity(String commodityName){
+    public Commodity getCommodity(String commodityName) {
         Commodity co = new Commodity();
         for (Category category : categories) {
             if (category.containsCommodity(commodityName)) {
@@ -83,7 +83,7 @@ public class OnlineStore {
         return co;
     }
 
-    public void raitUpCommodity(String commodityName){
+    public void raitUpCommodity(String commodityName) {
         for (Category category : categories) {
             if (category.containsCommodity(commodityName)) {
                 category.getCommodity(commodityName).raitUp();
@@ -107,14 +107,18 @@ public class OnlineStore {
         if (this.containsCategory(categoryName)) {
             for (Category category : categories) {
                 if (category.equals(new Category(categoryName))) {
-                    switch (command){
-                        case "Name": category.sortByName();
-                        break;
-                        case "Prise": category.sortByPrise();
-                        break;
-                        case "Rating": category.sortByRating();
-                        break;
-                        default:category.printCommodities();
+                    switch (command) {
+                        case "Name":
+                            category.sortByName();
+                            break;
+                        case "Prise":
+                            category.sortByPrise();
+                            break;
+                        case "Rating":
+                            category.sortByRating();
+                            break;
+                        default:
+                            category.printCommodities();
                     }
                 }
             }

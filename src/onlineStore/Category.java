@@ -35,15 +35,15 @@ public class Category {
         this.commodities = commodities;
     }
 
-    public boolean containsCommodity(String commodityName){
+    public boolean containsCommodity(String commodityName) {
         return commodities.contains(new Commodity(commodityName));
     }
 
-    public Commodity getCommodity(String commodityName){
+    public Commodity getCommodity(String commodityName) {
         Commodity c = new Commodity();
-        if (this.containsCommodity(commodityName)){
-            for (Commodity commodity: commodities){
-                if (commodity.getName().equals(commodityName)){
+        if (this.containsCommodity(commodityName)) {
+            for (Commodity commodity : commodities) {
+                if (commodity.getName().equals(commodityName)) {
                     c = commodity;
                 }
             }
@@ -51,40 +51,40 @@ public class Category {
         return c;
     }
 
-    public void addCommodity(Commodity... commodity){
+    public void addCommodity(Commodity... commodity) {
         commodities.addAll(Arrays.asList(commodity));
     }
 
-    public void printCommodities(){
-        for (Commodity commodity  : commodities) {
-            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+    public void printCommodities() {
+        for (Commodity commodity : commodities) {
+            System.out.printf("%-15s %-8.2f %2s%n", commodity.getName(),
                     commodity.getPrise(), commodity.getRating());
         }
     }
 
-    public void sortByName(){
+    public void sortByName() {
         Set<Commodity> c = new TreeSet<>(new CommodityByNameComparator());
         c.addAll(commodities);
-        for (Commodity commodity: c){
-            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+        for (Commodity commodity : c) {
+            System.out.printf("%-15s %-8.2f %2s%n", commodity.getName(),
                     commodity.getPrise(), commodity.getRating());
         }
     }
 
-    public void sortByPrise(){
+    public void sortByPrise() {
         Set<Commodity> c = new TreeSet<>(new CommodityByPriseComparator());
         c.addAll(commodities);
-        for (Commodity commodity: c){
-            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+        for (Commodity commodity : c) {
+            System.out.printf("%-15s %-8.2f %2s%n", commodity.getName(),
                     commodity.getPrise(), commodity.getRating());
         }
     }
 
-    public void sortByRating(){
+    public void sortByRating() {
         Set<Commodity> c = new TreeSet<>(new CommodityByRatingComparator());
         c.addAll(commodities);
-        for (Commodity commodity: c){
-            System.out.printf("%-15s %-8.2f %2s%n",commodity.getName(),
+        for (Commodity commodity : c) {
+            System.out.printf("%-15s %-8.2f %2s%n", commodity.getName(),
                     commodity.getPrise(), commodity.getRating());
         }
     }

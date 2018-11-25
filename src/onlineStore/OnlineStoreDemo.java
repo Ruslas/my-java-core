@@ -1,8 +1,5 @@
 package onlineStore;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class OnlineStoreDemo {
     public static void main(String[] args) {
         OnlineStore eldorado = new OnlineStore();
