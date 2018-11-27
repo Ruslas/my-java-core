@@ -10,6 +10,10 @@ public class User {
         this.userBasket = new Basket();
     }
 
+    public User() {
+        this.userBasket = new Basket();
+    }
+
     public String getLogin() {
         return login;
     }
@@ -38,6 +42,10 @@ public class User {
         userBasket.addCommodity(commodity);
     }
 
+    public void basketContent(){
+        userBasket.printBasketContents();
+    }
+
     public void buyAll() {
         if (!userBasket.getBoughtCommodities().isEmpty()) {
             System.out.print("Вы преобрели ");
@@ -58,13 +66,15 @@ public class User {
         User user = (User) o;
 
         if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        return password != null ? password.equals(user.password) : user.password == null;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        return userBasket != null ? userBasket.equals(user.userBasket) : user.userBasket == null;
     }
 
     @Override
     public int hashCode() {
         int result = login != null ? login.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (userBasket != null ? userBasket.hashCode() : 0);
         return result;
     }
 

@@ -33,4 +33,11 @@ public class Dog extends  Animal {
     public void sleep(){
         System.out.println("Собака спит");
     }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "size='" + size + '\'' +
+                "} " + super.toString();
+    }
 }

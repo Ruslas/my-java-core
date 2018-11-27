@@ -1,26 +1,24 @@
 package onlineStore;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class OnlineStore {
     private Set<Category> categories;
-    private Set<User> users;
+    private Map<String, User> users;
 
     public OnlineStore(Set<Category> categories) {
         this.categories = categories;
-        users = new HashSet<>();
+        users = new HashMap<>();
     }
 
-    public OnlineStore(Set<Category> categories, Set<User> users) {
+    public OnlineStore(Set<Category> categories, Map<String, User> users) {
         this.categories = categories;
         this.users = users;
     }
 
     public OnlineStore() {
         categories = new HashSet<>();
-        users = new HashSet<>();
+        users = new HashMap<>();
     }
 
     public Set<Category> getCategories() {
@@ -31,11 +29,11 @@ public class OnlineStore {
         this.categories = categories;
     }
 
-    public Set<User> getUsers() {
+    public Map<String, User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(Map<String, User> users) {
         this.users = users;
     }
 
@@ -47,20 +45,28 @@ public class OnlineStore {
         return this.categories.removeAll(Arrays.asList(category));
     }
 
-    public boolean addUser(String login, String password) {
-        return this.users.add(new User(login, password));
+    public void addUser(String login, String password) {
+        this.users.put(login, new User(login, password));
     }
 
-    public boolean addUser(User... user) {
-        return this.users.addAll(Arrays.asList(user));
+    public void addUser(User... user) {
+        for (User u : user) {
+            this.users.put(u.getLogin(), u);
+        }
     }
 
-    public boolean removeUser(String login, String password) {
-        return this.users.remove(new User(login, password));
+    public void removeUser(String login) {
+        this.users.remove(login);
+    }
+
+    public User getUser(String login){
+        return users.get(login);
     }
 
     public boolean userAuthentication(String login, String password) {
-        return users.contains(new User(login, password));
+        return users.containsKey(login) &&
+                users.containsValue(users.get(login)) &&
+                users.get(login).getPassword().equals(password);
     }
 
     public boolean containsCategory(String categoryName) {
@@ -127,13 +133,9 @@ public class OnlineStore {
         }
     }
 
-    public void pickCommodity(String commodityName, String userLogin) {
-        for (User user : users) {
-            if (user.getLogin().equals(userLogin)) {
-                user.pickCommodity(this.getCommodity(commodityName));
-                raitUpCommodity(commodityName);
-            }
-        }
+    public void pickCommodity(String commodityName, User user) {
+        users.get(user.getLogin()).pickCommodity(this.getCommodity(commodityName));
+        raitUpCommodity(commodityName);
     }
 
     @Override

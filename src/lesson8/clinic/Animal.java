@@ -32,4 +32,12 @@ public abstract class Animal implements Serializable {
     public abstract void makeNoise();
     public abstract void eat();
     public abstract void sleep();
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "food='" + food + '\'' +
+                ", location='" + location + '\'' +
+                '}';
+    }
 }
