@@ -1,5 +1,8 @@
 package onlineStore;
 
+import lesson17.classwork.WrongLoginException;
+import lesson17.classwork.WrongPasswordException;
+
 import java.util.*;
 
 public class OnlineStore {
@@ -59,14 +62,34 @@ public class OnlineStore {
         this.users.remove(login);
     }
 
-    public User getUser(String login){
+    public User getUser(String login) {
         return users.get(login);
     }
 
     public boolean userAuthentication(String login, String password) {
-        return users.containsKey(login) &&
+        boolean t = users.containsKey(login) &&
                 users.containsValue(users.get(login)) &&
                 users.get(login).getPassword().equals(password);
+        if (t) {
+            return true;
+        } else {
+            return verify(login, password);
+        }
+    }
+
+    private static boolean verify(String login, String password) {
+        try {
+            if (login.length() > 20) {
+                throw new WrongLoginException("Too long login");
+            }
+            if (password.length() < 4) {
+                throw new WrongPasswordException("Too short password");
+            }
+        } catch (WrongLoginException | WrongPasswordException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
     }
 
     public boolean containsCategory(String categoryName) {
