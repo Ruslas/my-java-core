@@ -3,6 +3,10 @@ package onlineStore;
 import lesson17.classwork.WrongLoginException;
 import lesson17.classwork.WrongPasswordException;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class OnlineStore {
@@ -41,20 +45,41 @@ public class OnlineStore {
     }
 
     public boolean addCategories(Category... category) {
+        StringBuilder s = new StringBuilder();
+        for (Category c: category){
+            s.append(c.getName()).append(", ");
+        }
+        s.delete(s.length()-2, s.length());
+        logWrite("Добавлена(ны) категория(и): " + s);
         return this.categories.addAll(Arrays.asList(category));
     }
 
     public boolean removeCategories(Category... category) {
+        StringBuilder s = new StringBuilder();
+        for (Category c: category){
+            s.append(c.getName()).append(", ");
+        }
+        s.delete(s.length()-2, s.length());
+        logWrite("Удалена(ны) категория(и): " + s);
         return this.categories.removeAll(Arrays.asList(category));
     }
 
     public void addUser(String login, String password) {
         this.users.put(login, new User(login, password));
+        logWrite("Зарегестрирован новый пользователь " + login + "!");
     }
 
     public void addUser(User... user) {
+        StringBuilder s = new StringBuilder();
         for (User u : user) {
             this.users.put(u.getLogin(), u);
+            s.append(u.getLogin()).append(", ");
+        }
+        s.delete(s.length()-2, s.length());
+        if (user.length == 1) {
+            logWrite("Зарегестрирован новый пользователь: " + s);
+        } else {
+            logWrite("Зарегестрированы новые пользователи: " + s);
         }
     }
 
@@ -71,8 +96,10 @@ public class OnlineStore {
                 users.containsValue(users.get(login)) &&
                 users.get(login).getPassword().equals(password);
         if (t) {
+            logWrite("Пользователь " + login + " успешно прошел аутентификацию");
             return true;
         } else {
+            logWrite("Пользователь " + login + " не прошел аутентификацию");
             return verify(login, password);
         }
     }
@@ -118,6 +145,7 @@ public class OnlineStore {
                 category.getCommodity(commodityName).raitUp();
             }
         }
+        logWrite("Рейтинг " + commodityName + " +1");
     }
 
     public void printCommodity(String categoryName) {
@@ -158,7 +186,28 @@ public class OnlineStore {
 
     public void pickCommodity(String commodityName, User user) {
         users.get(user.getLogin()).pickCommodity(this.getCommodity(commodityName));
+        logWrite(user.getLogin() + " приобрел " + commodityName);
         raitUpCommodity(commodityName);
+    }
+
+    public void logWrite(String log){
+        String pass = "src\\onlineStore\\Log.txt";
+        String dateTime = getTime();
+        try (BufferedWriter bufferWriter =
+                     new BufferedWriter(new FileWriter(
+                             pass, true))) {
+            bufferWriter.write(dateTime + log + "\n\n");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public String getTime() {
+        StringBuilder s = new StringBuilder();
+        LocalDateTime dateTime = LocalDateTime.now();
+        s.append(dateTime).delete(s.length()-10, s.length()).
+                append("\n").setCharAt(10, ' ');
+        return s.toString();
     }
 
     @Override
