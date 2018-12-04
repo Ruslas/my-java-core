@@ -1,5 +1,6 @@
 package onlineStore;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,6 +36,19 @@ public class Basket {
             System.out.print(commodity.getName() + ", ");
         }
         System.out.println();
+    }
+
+    public String BasketContent(){
+        StringBuilder s = new StringBuilder();
+        LocalDateTime  dateTime = LocalDateTime.now();
+        s.append(dateTime).delete(s.length()-10, s.length()).
+                append("\n").setCharAt(10, ' ');
+        for (Commodity commodity : boughtCommodities) {
+            s.append(commodity.getName()).append(" по цене ").
+                    append(commodity.getPrise()).append(" грн.\n");
+        }
+        s.append("Сумма покупки: ").append(this.getBasketPrice()).append(" грн.\n");
+        return s.append("\n").toString();
     }
 
     public double getBasketPrice() {

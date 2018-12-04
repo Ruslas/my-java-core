@@ -1,5 +1,11 @@
 package onlineStore;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Formatter;
+
 public class User {
     private String login, password;
     private Basket userBasket;
@@ -42,7 +48,7 @@ public class User {
         userBasket.addCommodity(commodity);
     }
 
-    public void basketContent(){
+    public void basketContent() {
         userBasket.printBasketContents();
     }
 
@@ -51,10 +57,24 @@ public class User {
             System.out.print("Вы преобрели ");
             userBasket.printBasketContents();
             System.out.println("На сумму " + userBasket.getBasketPrice());
+            this.generateReportFile();
             userBasket.clear();
             System.out.println("Благодарим за покупку");
         } else {
             System.out.println("Покупательская корзина пуста");
+        }
+    }
+
+    public void generateReportFile() {
+        String fileName = this.getLogin() + "_report";
+        String pass = "src\\onlineStore\\" +
+                fileName + ".txt";
+        try (BufferedWriter bufferWriter =
+                     new BufferedWriter(new FileWriter(
+                             pass, true))) {
+            bufferWriter.write(userBasket.BasketContent());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 

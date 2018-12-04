@@ -11,5 +11,6 @@ public class EmployeeDemo {
         Employee e7 = new Employee("Jolie Nikol", 550.718);
         Employee[] employees = {e1, e2, e3, e4, e5, e6, e7};
         Report.generateReport(employees);
+        Report.generateReportFile("Report_first", employees);
     }
 }
