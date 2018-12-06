@@ -30,6 +30,7 @@ public class Simplex {
             a[m][j] = c[j];
         }
         a[m + 1][n - 1] = Rational.ONE.negate();
+        System.out.println(Arrays.deepToString(a) + " L = " + L + " ");
         for (int E = n - 1;;) {
             if (L < m) {
                 int t = index[E];
@@ -41,6 +42,7 @@ public class Simplex {
                         a[L][j] = a[L][j].mul(a[L][E].negate());
                     }
                 }
+                System.out.println(Arrays.deepToString(a) + " L = " + L + " " + " E = " + E +  Arrays.toString(index));
                 for (int i = 0; i <= m + 1; i++) {
                     if (i != L) {
                         for (int j = 0; j <= n; j++) {
@@ -51,6 +53,7 @@ public class Simplex {
                         a[i][E] = a[i][E].mul(a[L][E]);
                     }
                 }
+                System.out.println(Arrays.deepToString(a) + " L = " + L + " " + " E = " + E +  Arrays.toString(index));
             }
             E = -1;
             for (int j = 0; j < n; j++) {
@@ -96,10 +99,9 @@ public class Simplex {
         long[] c = { 1, 1 };
         Rational[] x = new Rational[c.length];
         Rational res = simplex(cnv(a), cnv(b), cnv(c), x);
-        System.out.println(new Rational(8).equals(res));
         System.out.println(Arrays.toString(x));
 
-        a = new long[][] { { 3, 4, -3 }, { 5, -4, -3 }, { 7, 4, 11 } };
+       /* a = new long[][] { { 3, 4, -3 }, { 5, -4, -3 }, { 7, 4, 11 } };
         b = new long[] { 23, 10, 30 };
         c = new long[] { -1, 1, 2 };
         x = new Rational[c.length];
@@ -133,7 +135,7 @@ public class Simplex {
         c = new long[] { 1, 1 };
         x = new Rational[c.length];
         res = simplex(cnv(a), cnv(b), cnv(c), x);
-        System.out.println(Arrays.toString(x));
+        System.out.println(Arrays.toString(x));*/
     }
 
     static Rational[] cnv(long[] a) {
