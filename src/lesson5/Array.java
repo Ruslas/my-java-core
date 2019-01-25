@@ -3,12 +3,12 @@ package lesson5;
 public class Array {
     public static void main(String[] args) {
         String[] weakDays = new String[7];
-        weakDays [0] = "Mounday";
-        weakDays [1] = "Tusday";
-        weakDays [2] = "Wensday";
-        weakDays [3] = "Thersday";
+        weakDays [0] = "Monday";
+        weakDays [1] = "Tuesday";
+        weakDays [2] = "Wednesday";
+        weakDays [3] = "Thursday";
         weakDays [4] = "Friday";
-        weakDays [5] = "Setarday";
+        weakDays [5] = "Saturday";
         weakDays [6] = "Sunday";
         System.out.println(weakDays[6]);
 
