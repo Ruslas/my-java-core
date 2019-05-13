@@ -2,11 +2,11 @@ package univercity.psp;
 
 public class DiditByDiditAsynhroDemo {
     public static void main(String[] args) {
-        double A = 0.625;
-        double B = 0.75;
+        double A = 0.315;
+        double B = 2.41;
         double C = 1;
         int[] ep = new int[100];
-        dbdas(A, B, C, 0.001, ep);
+        dbdas(A, B, C, 0.0001, ep);
     }
 
     public static void dbdas(double A, double B, double C, double delta, int[] ep) {
@@ -32,11 +32,11 @@ public class DiditByDiditAsynhroDemo {
             if (eps != 0) {
                 U = tempU + C * Math.pow(2, 0 - i);
             }
-            System.out.println("y" + (i + 1) + " = " + tempy + " - " + eps * B +
-                    "/" + Math.pow(2, i) + " = " + y);
+            System.out.printf("y%d = %.5f - %.2f/%d = %.5f%n",
+                    i+1, tempy, B, (int) Math.pow(2, i), y);
             if (eps != 0) {
-                System.out.println("U" + (i + 1) + " = " + tempU + " + " + eps * C +
-                        "/" + Math.pow(2, i) + " = " + U);
+                System.out.printf("U%d = %.5f + %d/%d = %.5f%n",
+                        i+1, tempU, (int)C, (int) Math.pow(2, i), U);
             } else {
                 System.out.println("-=-=-=-=-=-=-=-=-=-==--==---=-");
             }

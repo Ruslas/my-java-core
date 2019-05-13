@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class DiditByDiditSynhroDemo {
     public static void main(String[] args) {
-        double A = 3.15;
-        double B = 24.1;
+        double A = 0.315;
+        double B = 2.41;
         double C = 0.118;
         int[] ep = new int[10];
         dbds(A, B, C, 10, ep);
@@ -27,10 +27,12 @@ public class DiditByDiditSynhroDemo {
             y = tempy - eps * B * Math.pow(2, 0 - i);
             U = tempU + eps * C * Math.pow(2, 0 - i);
 
-            System.out.println("y" + (i + 1) + " = " + tempy + " - " + eps * B +
-                    "/" + Math.pow(2, i) + " = " + y);
-            System.out.println("U" + (i + 1) + " = " + tempU + " + " + eps * C +
-                    "/" + Math.pow(2, i) + " = " + U);
+            System.out.printf("y%d = %.5f - %.2f/%d = %.5f%n",
+                    i+1, tempy, eps * B, (int) Math.pow(2, i), y);
+
+            System.out.printf("U%d = %.5f + %.3f/%d = %.5f%n",
+                    i+1, tempU, eps * C, (int) Math.pow(2, i), U);
+
             System.out.println();
         }
     }

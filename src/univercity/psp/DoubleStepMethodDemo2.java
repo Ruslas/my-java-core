@@ -34,29 +34,34 @@ public class DoubleStepMethodDemo2 {
             tempx = x;
             tempy = y;
 
-           /*if (Math.abs(1-Math.abs(fi)) > Math.abs(1-Math.abs(tempfi)) && k%2 != 1) {
-                tempfi = tempfi;
-            } else*/
-
            if (!flag) {
                tempfi = fi;
            }
             x = tempx * (1 + eps * Math.pow(2, 0 - i));
+            System.out.println("x" + (k+1) + " = " + tempx + "*(1+" + eps + "/"
+                    + Math.pow(2, i) + ") = " + x);
 
             y = tempy - eps * tempx * Math.pow(2, 0 - i);
 
+            System.out.println("y" + (k+1) + " = " + tempy + " - "
+                    + tempx*eps + "/"
+                    + Math.pow(2, i) + " = " + y);
+
             fi = tempfi - Math.log(1 + eps * Math.pow(2, 0 - i));
+
+            System.out.println("fi" + (k+1) + " = " + tempfi + " - "
+                    + Math.log(1 + eps * Math.pow(2, 0 - i)) + " = " + fi);
 
             if (Math.abs(1 - Math.abs(x)) > Math.abs(1 - Math.abs(tempx)) && k % 2 != 0) {
                 flag = true;
             } else flag = false;
 
 
-            System.out.println("x" + (k + 1) + " = " + x);
+            /*System.out.println("x" + (k + 1) + " = " + x);
             System.out.println("y" + (k + 1) + " = " + y);
             System.out.println("fi" + (k + 1) + " = " + tempfi + " - " + "ln(" + 1 +" + " + eps + " * 2^" + i +
                      ")" + " = " + fi);
-            System.out.println(Math.log(1 + eps * Math.pow(2, 0 - i)));
+            System.out.println(Math.log(1 + eps * Math.pow(2, 0 - i)));*/
             System.out.println();
         }
     }
