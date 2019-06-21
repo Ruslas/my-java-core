@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class DiditByDiditSynhroDemo {
     public static void main(String[] args) {
-        double A = 0.61;
-        double B = 0.72;
-        double C = 0.38;
+        double A = 0.481;
+        double B = 3.81;
+        double C = 0.281;
         int[] ep = new int[10];
         dbds(A, B, C, 10, ep);
         System.out.println(Arrays.toString(ep));

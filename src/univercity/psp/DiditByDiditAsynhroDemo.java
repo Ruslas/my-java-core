@@ -2,11 +2,11 @@ package univercity.psp;
 
 public class DiditByDiditAsynhroDemo {
     public static void main(String[] args) {
-        double A = 0.315;
-        double B = 2.41;
+        double A = 0.481;
+        double B = 3.81;
         double C = 1;
         int[] ep = new int[100];
-        dbdas(A, B, C, 0.0001, ep);
+        dbdas(A, B, C, 0.001, ep);
     }
 
     public static void dbdas(double A, double B, double C, double delta, int[] ep) {

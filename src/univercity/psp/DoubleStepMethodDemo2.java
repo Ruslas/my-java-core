@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class DoubleStepMethodDemo2 {
     public static void main(String[] args) {
         int kmax = 14, eps = 1;
-        double x = 0.5066;
+        double x = 1.284;
         double y = 1 - x, fi = 0;
         int[] ep = new int[14];
         doubStepMod(kmax, eps, 2, fi, x, y, ep);
