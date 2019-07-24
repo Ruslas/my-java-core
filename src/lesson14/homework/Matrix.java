@@ -50,7 +50,7 @@ public class Matrix<T extends Number> {
                     result[i][j] = this.array[i][j].doubleValue() + m2.array[i][j].doubleValue();
                 }
         } else {
-            System.out.println("Матрецы не могут быть просумированы");
+            System.out.println("Матрицы не могут быть просумированы");
         }
         return new Matrix<Double>(result);
     }
