@@ -38,4 +38,13 @@ public class Newspaper {
     public void print(Printable p){
         p.print();
     }
+
+    @Override
+    public String toString() {
+        return "Newspaper{" +
+                "newspaperTitle='" + newspaperTitle + '\'' +
+                ", number=" + number +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

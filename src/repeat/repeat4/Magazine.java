@@ -55,4 +55,13 @@ public class Magazine implements Printable {
         System.out.println();
         System.out.println("Magazine printed\n");
     }
+
+    @Override
+    public String toString() {
+        return "Magazine{" +
+                "magazineTitle='" + magazineTitle + '\'' +
+                ", year=" + year +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }

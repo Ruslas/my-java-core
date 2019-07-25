@@ -64,4 +64,14 @@ public class Book implements Printable {
         System.out.println();
         System.out.println("Book printed\n");
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookTitle='" + bookTitle + '\'' +
+                ", bookAuthor='" + bookAuthor + '\'' +
+                ", year=" + year +
+                ", country='" + country + '\'' +
+                '}';
+    }
 }
