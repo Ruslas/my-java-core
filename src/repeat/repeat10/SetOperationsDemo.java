@@ -31,7 +31,6 @@ public class SetOperationsDemo {
         fourthSet.add("Z");
         fifthSet.add(new Box(4, 5, 6, 7));
         fifthSet.add(new Box(2, 1, 8, 2));
-
         System.out.println(intersect(firstSet, secondSet));
         System.out.println(union(firstSet, secondSet, fourthSet, fifthSet, thirdSet));
 
