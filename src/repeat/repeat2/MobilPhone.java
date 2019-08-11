@@ -3,8 +3,8 @@ package repeat.repeat2;
 public class MobilPhone  extends Phone{
     private String model;
 
-    public MobilPhone(String number, int weight, String model) {
-        super(number, weight);
+    public MobilPhone(String number, int weight, TelephoneStation telephoneStation, String model) {
+        super(number, weight, telephoneStation);
         this.model = model;
     }
 
