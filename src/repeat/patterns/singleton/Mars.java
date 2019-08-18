@@ -7,6 +7,7 @@ public class Mars implements Planet {
 
 
     private Mars() {
+        System.out.println("Create Mars");
     }
 
     public static Mars getInstance(){

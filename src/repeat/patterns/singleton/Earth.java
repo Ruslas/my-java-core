@@ -7,6 +7,7 @@ public class Earth implements Planet{
 
 
     private Earth() {
+        System.out.println("Create Earth");
     }
 
     public static Earth getInstance(){
