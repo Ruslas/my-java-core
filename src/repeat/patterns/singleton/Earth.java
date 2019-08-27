@@ -5,7 +5,6 @@ public class Earth implements Planet{
     private long population = 7530000000L;
     private static Earth instance;
 
-
     private Earth() {
         System.out.println("Create Earth");
     }

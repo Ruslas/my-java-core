@@ -37,16 +37,16 @@ public class SetOperationsDemo {
 
     }
 
-    private static Set union (Set<?>... sets){
-        Set resultSet = new HashSet();
+    private static Set<?> union (Set<?>... sets){
+        Set<?> resultSet = new HashSet();
         for (Set set: sets){
             resultSet.addAll(set);
         }
         return resultSet;
     }
 
-    private static Set intersect(Set<?>... sets){
-        Set resultSet = new HashSet(sets[0]);
+    private static Set<?> intersect(Set<?>... sets){
+        Set<?> resultSet = new HashSet<>(sets[0]);
         for (Set set: sets){
             resultSet.retainAll(set);
         }
