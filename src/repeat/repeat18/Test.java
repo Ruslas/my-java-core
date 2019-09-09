@@ -1,21 +1,27 @@
 package repeat.repeat18;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Test {
     public static void main(String[] args) {
-        SomeTest someTest = new SomeTest();
+        String[] strings = "qqd qwdw qdwdq uuu iiii dddd".split(" ");
+        System.out.println(Arrays.toString(strings));
+        smash(strings);
+        System.out.println(Arrays.toString(strings));
+    }
 
-        System.out.println(SomeTest.n);
-        System.out.println(someTest.n);
-
-        someTest.n = 99;
-
-        System.out.println(SomeTest.n);
-        System.out.println(someTest.n);
-
-        SomeTest someTest1 = new SomeTest();
-
-        System.out.println(SomeTest.n);
-        System.out.println(someTest1.n);
+    public static void smash(Object[] objects){
+        Random random = new Random();
+        Object temp;
+        int halfLength = objects.length/2;
+        int rand;
+        for (int i = 0; i < halfLength; i++){
+            rand = random.nextInt(halfLength) + halfLength;
+           temp = objects[i];
+           objects[i] = objects[rand];
+           objects[rand] = temp;
+        }
     }
 
 }
